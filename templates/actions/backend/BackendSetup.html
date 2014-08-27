@@ -1,0 +1,83 @@
+<div class="block double-padded" style="padding-bottom: 10px;">
+    <h1>Парсер kitchenaids.ru</h1>
+    <p>Парсер товаров с сайта kitchenaids.ru</p>
+
+
+    <div id="s-updateproducts-form">
+        <form action="?plugin=kitchenaids&action=upload" method="post" class="plugins-settings-form" enctype="multipart/form-data">
+            {$wa->csrf()}
+
+            <div id="s-csvproduct-submit" class="field-group">
+                <div class="field">
+                    <div class="value submit">
+                        <input type="submit" value="Запустить парсер" class="button green">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="s-regenerate-progressbar" style="display:none; margin-top: 20px;">
+
+                <div class="progressbar blue float-left" style="display: none; width: 70%;">
+                    <div class="progressbar-outer">
+                        <div class="progressbar-inner" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <img style="float:left; margin-top:8px;" src="{$wa_url}wa-content/img/loading32.gif" />
+                <div class="clear"></div>
+                <span class="progressbar-description">0.000%</span>
+                <em class="hint">[`Please don't close your browser window until re-generation is over.`]</em>
+                <br clear="left" />
+                <em class="errormsg"></em>                    
+            </div>
+
+            <div class="s-regenerate-report" style="display: none; margin-top: 20px;">
+            </div>
+
+        </form>
+
+
+        <form action="?plugin=kitchenaids&action=move" method="post" class="plugins-settings-form" enctype="multipart/form-data">
+            {$wa->csrf()}
+
+            <div id="s-csvproduct-submit" class="field-group">
+                <div class="field">
+                    <div class="value submit">
+                        <input type="submit" value="Импорт, загруженных парсером товаров, в магазин" class="button green">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="s-regenerate-progressbar" style="display:none; margin-top: 20px;">
+
+                <div class="progressbar blue float-left" style="display: none; width: 70%;">
+                    <div class="progressbar-outer">
+                        <div class="progressbar-inner" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <img style="float:left; margin-top:8px;" src="{$wa_url}wa-content/img/loading32.gif" />
+                <div class="clear"></div>
+                <span class="progressbar-description">0.000%</span>
+                <em class="hint">[`Please don't close your browser window until re-generation is over.`]</em>
+                <br clear="left" />
+                <em class="errormsg"></em>                    
+            </div>
+
+            <div class="s-regenerate-report" style="display: none; margin-top: 20px;">
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+</div>
+
+<script type="text/javascript" src="{$wa_app_static_url}plugins/kitchenaids/js/kitchenaids.js?{$wa->version()}"></script>
+<script>
+    $(function() {
+        $.kitchenaids.init();
+    });
+</script>
